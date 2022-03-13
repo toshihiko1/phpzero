@@ -8,15 +8,15 @@
 </head>
 <body>
 スタッフの追加</br>
-<form action="sraff_add_check.php" method="post">
+<form action="staff_add_check.php" method="post">
   スタッフ名を入力してください。</br>
   <input type="text" name="name" style="width:200px"></br>
   パスワードを入力してください。</br>
-  <input type="text" name="pass" style="width:200px"></br>
+  <input type="password" name="pass" style="width:200px"></br>
   パスワードをもう一度入力してください。</br>
-  <input type="text" name="pass2" style="width:200px"></br>
+  <input type="password" name="pass2" style="width:200px"></br>
   </br>
-  <input type="button" onclic="history.back()" value="戻る">
+  <input type="button" onclick="history.back()" value="戻る">
   <input type="submit" value="OK">
 </form>
 </body>

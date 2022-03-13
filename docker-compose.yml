@@ -9,12 +9,16 @@ services:
       - ./www/html:/var/www/html
     depends_on:
       - php
+    links:
+      - php
 
   php:
     build: ./php
     volumes:
       - ./www/html:/var/www/html
     depends_on:
+      - db
+    links:
       - db
 
   db:
@@ -24,14 +28,23 @@ services:
       MYSQL_DATABASE: shop
       MYSQL_USER: zero
       MYSQL_PASSWORD: secret
+      DB_SOCKET: /var/run/mysqld/mysqld.sock
     ports:
       - 13306:3306
     volumes:
       - ./mysql/data:/var/lib/mysql
 
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=zero
+      - PMA_PASSWORD=secret
     ports:
       - 8888:80
     depends_on:
+      - db
+    links:
       - db

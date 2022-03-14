@@ -8,7 +8,7 @@ try {
   $password ='secret';
   $dbh = new PDO($dsn,$user,$password);
   $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-  $sql = 'SELECT name,price FROM mst_product WHERE code=?';
+  $sql = 'SELECT name,price,gazou FROM mst_product WHERE code=?';
   $stmt=$dbh->prepare($sql);
   $data[] = $pro_code;
   $stmt->execute($data);
@@ -16,8 +16,17 @@ try {
   $rec = $stmt->fetch(PDO::FETCH_ASSOC);
   $pro_name = $rec['name'];
   $pro_price = $rec['price'];
+  $pro_gazou_name = $rec['gazou'];
 
   $dbh = null;
+
+  if($pro_gazou_name == '') {
+    $disp_gazou = '';
+  }
+  else
+  {
+    $disp_gazou = '<img src="./gazou/'.$pro_gazou_name.'">';
+  }
 
 }
   catch(EXCEPTION $e)
@@ -39,6 +48,7 @@ try {
 価格<br/>
 <?php print $pro_price;?>円
 <br/>
+<?php print $disp_gazou;?>
 <br/>
 <input type="button" onclick="history.back()" value="戻る">
 </form>

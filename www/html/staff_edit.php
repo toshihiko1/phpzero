@@ -1,7 +1,7 @@
 <?php
 
 try {
-  $staff_code = $_POST['staffcode'];
+  $staff_code = $_GET['staffcode'];
 
   $dsn ='mysql:dbname=shop;host=db;charset=utf8';
   $user ='zero';

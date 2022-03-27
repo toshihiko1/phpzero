@@ -11,7 +11,7 @@ if(isset($_SESSION['login']) == false) {
     print '<br/>';
     }
 
-require_once('../common/common.php');
+require_once('common/common.php');
 
 $post = sanitize($_POST);
 

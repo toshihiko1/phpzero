@@ -10,6 +10,7 @@ if(isset($_SESSION['login']) == false) {
     print 'さんログイン中<br/>';
     print '<br/>';
     }
+    
 
 try {
   $pro_code = $_GET['procode'];

@@ -48,7 +48,7 @@ try {
     header('Location:staff_top.php');
     exit();
   }
-  
+
 
 }catch(Exception $e) {
     print 'ただいま障害により大変ご迷惑をお掛けしております。' . $e->getMessage() . "<br>";

@@ -3,7 +3,7 @@ session_start();
 session_regenerate_id(true);
 if(isset($_SESSION['member_login']) == false) {
     print 'ようこそゲスト様<br/>';
-    print '<a href="member.html">会員ログイン</a>';
+    print '<a href="member_login.php">会員ログイン</a>';
     print '<br/>';
 }else{
     print 'ようこそ';
